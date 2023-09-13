@@ -12,7 +12,7 @@
 #if os(macOS)
 import Cocoa
 
-public enum Device: CustomStringConvertible {
+public enum Device: String, CustomStringConvertible {
     case iMac, macMini, macPro, macBook, macBookAir, macBookPro, xserve, unknown
 
     static public let current: Device = {
@@ -68,7 +68,7 @@ public enum Device: CustomStringConvertible {
     }
 
     public var description: String {
-        return String(describing: self) + " " + String(describing: Device.sizeInInches()) + "-inch"
+        return self.rawValue + " " + String(describing: Device.sizeInInches()) + "-inch"
     }
 
     public var systemName: String? {
